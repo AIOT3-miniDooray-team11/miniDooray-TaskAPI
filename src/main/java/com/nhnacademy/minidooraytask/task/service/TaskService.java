@@ -37,6 +37,11 @@ public class TaskService {
         return taskRepository.findAllByProject_Id(projectId);
     }
 
+    @Transactional
+    public List<Task> getMytasks(long accountId) {
+        return taskRepository.findByProjectMember_AccountId(accountId);
+    }
+
     // [Task 단건 조회]
     @Transactional(readOnly = true)
     public Task getSpecificTask(Long taskId, Long projectId) {
@@ -46,6 +51,7 @@ public class TaskService {
                     return new TaskNotFoundException("[task service] 존재하지 않는 task입니다");
                 });
     }
+
 
     //테스크 작성자인지 확인
     @Transactional(readOnly = true)

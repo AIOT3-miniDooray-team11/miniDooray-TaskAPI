@@ -38,6 +38,24 @@ public class TaskFacade {
         return createTaskInfoListDto(projectMemberService.getProjectMemberByAccountId(accountId)).get(projectId);
     }
 
+    @Transactional
+    public TaskInfoListDto getMyTasks(long accountId) {
+
+        List<Task> tasks =  taskService.getMytasks(accountId);
+
+        List<TaskInfoDto> taskInfoDtoList = tasks.stream()
+                .map(task -> new TaskInfoDto(
+                        task.getId(),
+                        task.getTitle(),
+                        task.getMilestone() != null ? task.getMilestone().getStatus() : null
+                ))
+                .toList();
+
+                TaskInfoListDto responseDto = new TaskInfoListDto(taskInfoDtoList);
+
+        return responseDto;
+    }
+
     //특정 파사드 정보
     @Transactional
     public TaskViewDto getSpecificTask(Long taskId, Long projectId, long accountId) {
@@ -180,4 +198,5 @@ public class TaskFacade {
         Task verifiedTask = taskService.getTaskById(taskId);
         taskService.deleteTask(verifiedTask);
     }
+
 }

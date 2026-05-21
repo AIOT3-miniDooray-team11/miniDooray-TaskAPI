@@ -14,13 +14,6 @@ public class CommentController {
 
     private final CommentFacade commentFacade;
 
-    //마이페이지에서 내가 작성한 Comment 목록 (GET)
-    @GetMapping("/mypage/comments")
-    public ResponseEntity<CommentListDto> getCommentResponseDtoList(@RequestHeader("X-Account-Id") Long accountId) {
-        CommentListDto commentListDto = commentFacade.getCommentList(accountId);
-        return ResponseEntity.ok().body(commentListDto);
-    }
-
     //댓글 생성 (POST)
     @PostMapping("/tasks/{taskId}/comments")
     public ResponseEntity<Void> createComment(@PathVariable long taskId,

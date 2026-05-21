@@ -24,7 +24,6 @@ public class TaskController {
         return ResponseEntity.ok().body(responseDto);
     }
 
-
     @GetMapping("/{taskId}")
     public ResponseEntity<TaskViewDto> getTaskResponseDto(@PathVariable long projectId,
                                                           @PathVariable long taskId,
@@ -35,7 +34,7 @@ public class TaskController {
     }
 
     @PostMapping
-    public ResponseEntity<TaskRequestDto> createTask(@PathVariable long projectId,
+    public ResponseEntity<Void> createTask(@PathVariable long projectId,
                                            @RequestHeader("X-Account-Id") Long accountId,
                                            @RequestBody TaskRequestDto requestDto) {
 

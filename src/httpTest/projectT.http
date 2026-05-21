@@ -1,0 +1,31 @@
+
+
+### 프로젝트 생성
+POST http://localhost:8082/task-api/projects
+X-Account-Id: 1
+Content-Type: application/json
+
+{
+  "title": "미니두레이 프로젝트",
+  "description": "첫 번째 프로젝트 생성 테스트입니다."
+}
+
+### 프로젝트 목록 조회
+GET http://localhost:8082/task-api/projects
+X-Account-Id: 1
+
+### Task 생성
+POST http://localhost:8082/task-api/projects/1/tasks
+X-Account-Id: 1
+Content-Type: application/json
+
+{
+  "title": "1번쩨 task",
+  "content": "task 생성 테스트",
+  "tagNameList": []
+}
+
+### Task 조회
+GET http://localhost:8082/task-api/projects/1/tasks
+X-Account-Id: 1
+
