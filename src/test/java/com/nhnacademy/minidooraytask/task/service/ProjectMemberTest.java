@@ -74,6 +74,8 @@ class ProjectMemberTest {
                 .hasMessageContaining("존재하지 않은 멤버 조회입니다");
     }
 
+    /*---------------------------------*/
+
     @Test
     @DisplayName("checkProjectMember(3개 파라미터) - 성공")
     void checkProjectMember_3params_success() {
@@ -97,6 +99,8 @@ class ProjectMemberTest {
         assertThatThrownBy(() -> projectMemberService.checkProjectMember(projectId, memberId, accountId))
                 .isInstanceOf(ProjectMemberIsNotExistException.class);
     }
+
+    /*---------------------------------*/
 
     @Test
     @DisplayName("getActiveMember - 성공")
@@ -125,13 +129,16 @@ class ProjectMemberTest {
                 .isInstanceOf(ProjectMemberIsNotExistException.class);
     }
 
+    /*---------------------------------*/
+    //public void checkAdminAuth(long projectId, long accountId)
+
     @Test
     @DisplayName("checkAdminAuth - 성공")
     void checkAdminAuth_success() {
-        MemberRequestDto requestDto = new MemberRequestDto(100L, "user", MembersAuth.ADMIN);
+        long projectId = 1L;
+        long accountId = 100L;
 
-        assertThatCode(() -> projectMemberService.checkAdminAuth(requestDto))
-                .doesNotThrowAnyException();
+        String auth
     }
 
     @Test
@@ -142,6 +149,8 @@ class ProjectMemberTest {
         assertThatThrownBy(() -> projectMemberService.checkAdminAuth(requestDto))
                 .isInstanceOf(IllegalArgumentException.class);
     }
+
+    /*---------------------------------*/
 
     @Test
     @DisplayName("checkProjectMemberWithAuth - 성공")
@@ -252,5 +261,5 @@ class ProjectMemberTest {
 
 //    @Test
 //    @DisplayName("addProjectMember - 신규 멤버 추가")
-
+//    void addProjectMember
 }

@@ -1,0 +1,26 @@
+logging:
+  file:
+    name: logs/miniDooray-AccountAPI.log
+  level:
+    com.nhnacadmey: DEBUG           # 패키지 레벨 조절 (DEBUG ↔ INFO)
+    org.hibernate.SQL: DEBUG        # SQL 쿼리 로그
+    org.hibernate.orm.jdbc.bind: TRACE  # 바인딩 파라미터 로그
+
+spring:
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:testdb;MODE=MySQL;NON_KEYWORDS=USER # 메모리 DB 사용 (MySQL 모드)
+    username: sa
+    password:
+
+  h2:
+    console:
+      enabled: true # 웹에서 H2 콘솔(localhost:8081/h2-console) 접속 허용
+      path: /h2-console
+
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.H2Dialect

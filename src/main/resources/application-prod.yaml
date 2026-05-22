@@ -1,0 +1,24 @@
+logging:
+  file:
+    name: logs/miniDooray-TaskAPI.log
+  level:
+    com.nhnacadmey: INFO            # 패키지 레벨 조절 (DEBUG ↔ INFO)
+    root: WARN
+
+spring:
+  datasource:
+    #    url: jdbc:mysql://10.116.64.14:13306/nhn_academy_40?serverTimezone=Asia/Seoul
+    url: jdbc:mysql://s4.java21.net:13306/nhn_academy_46?serverTimezone=Asia/Seoul
+    username: nhn_academy_46
+    password: J/_-W7)ZYB4URo0B
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: update
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+      format_sql: true
+      dialect: org.hibernate.dialect.MySQLDialect
+    show-sql: false
