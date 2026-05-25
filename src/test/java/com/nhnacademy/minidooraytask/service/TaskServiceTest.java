@@ -1,4 +1,4 @@
-package com.nhnacademy.minidooraytask.task.service;
+package com.nhnacademy.minidooraytask.service;
 
 import com.nhnacademy.minidooraytask.MileStone.domain.MileStone;
 import com.nhnacademy.minidooraytask.MileStone.domain.MileStoneStatus;
@@ -17,6 +17,7 @@ import com.nhnacademy.minidooraytask.task.domain.TaskRequestDto;
 import com.nhnacademy.minidooraytask.task.domain.TaskResponseDto;
 import com.nhnacademy.minidooraytask.task.exception.TaskNotFoundException;
 import com.nhnacademy.minidooraytask.task.repository.TaskRepository;
+import com.nhnacademy.minidooraytask.task.service.TaskService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

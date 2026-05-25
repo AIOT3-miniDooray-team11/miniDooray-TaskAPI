@@ -146,7 +146,7 @@ class ProjectServiceTest {
         Long accountId = 100L;
         Project project = new Project("ttl", "descrip", accountId);
 
-        given(projectRepository.findById(eq(projectId)))
+        given(projectRepository.findProjectByIdAndCreateAccountId(eq(projectId), eq(accountId)))
                 .willReturn(Optional.of(project));
 
         given(projectRepository.existsProjectByIdAndCreateAccountId(eq(projectId), eq(accountId)))

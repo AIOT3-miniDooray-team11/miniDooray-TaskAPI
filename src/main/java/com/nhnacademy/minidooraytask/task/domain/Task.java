@@ -9,10 +9,7 @@ import com.nhnacademy.minidooraytask.tag.domain.Tag;
 import com.nhnacademy.minidooraytask.tag.domain.TaskTag;
 import com.nhnacademy.minidooraytask.task.exception.TaskValidInputException;
 import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -56,6 +53,7 @@ public class Task {
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
+    @Setter
     @OneToOne
     @JoinColumn(name = "milestone_id")
     private MileStone milestone;
@@ -102,4 +100,5 @@ public class Task {
         }
         this.content = content;
     }
+
 }

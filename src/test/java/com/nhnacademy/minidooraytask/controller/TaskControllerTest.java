@@ -193,9 +193,8 @@ public class TaskControllerTest {
         long projectId = 1L;
         long taskId = 1L;
         long accountId = 400L;
-
         willThrow(new TaskNotFoundException("해당 테스크의 작성자가 아닙니다"))
-                .given(taskFacade).deleteTask(projectId, taskId, accountId);
+                .given(taskFacade).deleteTask(projectId, accountId, taskId);
 
         mockMvc.perform(delete("/task-api/projects/{projectId}/tasks/{taskId}", projectId, taskId)
                         .header("X-Account-Id", accountId))
